@@ -63,7 +63,7 @@ def minus():
 
     printFormatted(result)
 
-# Substraction of matrixes
+# Generate matrixes
 
 
 def generateResultMatrix():
