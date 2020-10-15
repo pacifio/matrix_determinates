@@ -9,4 +9,4 @@ cd matrix_determinates
 python3 ./matrix.py
 ```
 
->> Determinates are on the way
+> Determinates are on the way
