@@ -1,16 +1,6 @@
 #!/usr/bin/python3
 
-matrix1 = [
-    [4, 8, 4],
-    [0, 4, 4],
-    [8, 0, 8]
-]
-
-matrix2 = [
-    [2, -4, -2],
-    [2, 0, -1],
-    [-2, 4, 1]
-]
+from data import matrix1, matrix2
 
 m1Size = len(matrix1)
 m2Size = len(matrix2)
@@ -91,7 +81,46 @@ def printFormatted(result):
             print(result[x][y], end=' , ')
         print()
 
+
+# Transpose matrix
+
+def transopse(matrix):
+    result = []
+
+    for _ in range(len(matrix)):
+        newRow = []
+        for _ in range(len(matrix1[0])):
+            newRow.append(0)
+
+        result.append(newRow)
+
+    for x in range(len(matrix)):
+        for y in range(len(matrix[0])):
+            result[y][x] = matrix[x][y]
+
+    printFormatted(result)
+
+
 # Main execution point
+
+def transposeUI():
+    print("Choose which matrix , 1 or 2")
+
+    try:
+        ans = int(input(">> "))
+
+        if ans == 0:
+            consoleUI()
+        elif ans == 1:
+            transopse(matrix1)
+        elif ans == 2:
+            transopse(matrix2)
+        else:
+            print("Invalid option :/")
+            transposeUI()
+    except:
+        print("Invalid option :/")
+        transposeUI()
 
 
 def consoleUI():
@@ -99,6 +128,7 @@ def consoleUI():
     print("1) Add")
     print("2) Subtract")
     print("3) Multiply")
+    print("4) Transpose")
     option = input(">> ")
 
     try:
@@ -116,6 +146,8 @@ def consoleUI():
             print('Multiplication of matrixes')
             multiply()
             print()
+        elif parsed == 4:
+            transposeUI()
         else:
             consoleUI()
     except:
